@@ -54,7 +54,7 @@ def wow_predict(dataframe):
 
   X = dataframe[['density_timestamp', 'Binned_Timestamps', 'Binned_Level', 'Binned_Unique_Days', 'Binned_Average_Hour']]
 
-  if 'Playing_after_6_months' is in dataframe.columns:
+  if 'Playing_after_6_months'  in dataframe.columns:
     y = dataframe['Playing_after_6_months']
     return X,y
   else:
