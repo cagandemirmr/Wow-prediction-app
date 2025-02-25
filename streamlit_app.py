@@ -93,7 +93,7 @@ st.subheader('Average_Playing_Density')
 Average_Playing_density = st.slider("The density of the player's gaming activities during specific time periods", 0.0, 1.0, 0.1)
 
 st.subheader('Max_level')
-max_level = st.slider("Max Level:", 0, 80, 1)
+max_level = st.slider("The highest level the player has reached.", 0, 80, 1)
 
 st.subheader('Unique_Days')
 unique_days = st.slider("The number of unique days the player was active.", 0, 200, 1)
