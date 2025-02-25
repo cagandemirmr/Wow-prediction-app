@@ -90,16 +90,16 @@ st.subheader('Total TimeStamp')
 Total_timestamp = st.slider("The total number of timestamps recorded for the player's activities in the game.", 0, 17000, 1)
 
 st.subheader('Average_Playing_Density')
-Average_Playing_density = st.slider("Average Playing Density:", 0.0, 1.0, 0.1)
+Average_Playing_density = st.slider("The density of the player's gaming activities during specific time periods", 0.0, 1.0, 0.1)
 
 st.subheader('Max_level')
 max_level = st.slider("Max Level:", 0, 80, 1)
 
 st.subheader('Unique_Days')
-unique_days = st.slider("Unique days:", 0, 200, 1)
+unique_days = st.slider("The number of unique days the player was active.", 0, 200, 1)
 
 st.subheader('Average_Hour')
-Average_hour = st.slider("Average hours:", 0.0, 10.0, 0.1)
+Average_hour = st.slider("The average hour the player plays the game", 0.0, 10.0, 0.1)
 
 # Data Processing and Prediction
 X = wow_predict(feature(Total_timestamp,Average_Playing_density,max_level,unique_days,Average_hour))
