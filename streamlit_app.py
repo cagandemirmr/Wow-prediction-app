@@ -112,6 +112,6 @@ y = model.predict(X)
 if y[0] == 0:
   st.write('YOUR PLAYER CHURNED')
 else:
-  st.write('YOUR PLAYER NON-CHURNED')
+  st.write('YOUR PLAYER STAYING')
 
 st.markdown('This app is created by Cagan Demir')
