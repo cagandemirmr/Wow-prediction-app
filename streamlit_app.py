@@ -86,17 +86,37 @@ unique_days = st.slider("Unique days:", 0, 200, 1)
 st.subheader('Average_Hour')
 Average_hour = st.slider("Average hours:", 0.0, 10.0, 0.1)
 
-# Kullanıcı girdilerini DataFrame'e dönüştürme
-df = pd.DataFrame({
+def feature(Total_timestamp,Average_Playing_density,max_level,unique_days,Average_hour):
+  # Kullanıcı girdilerini DataFrame'e dönüştürme
+  df = pd.DataFrame({
   'total_timestamps': [Total_timestamp],
   'Average_Playing_density': [Average_Playing_density],
   'max_level': [max_level],
   'unique_days': [unique_days],
   'Average_Hour': [Average_hour]
 })
+  # Streamlit Başlıkları
+st.title('CHURN PREDICTION of WoW')
+st.header('Features', divider='rainbow')
+
+# Kullanıcı Girdileri
+st.subheader('Total TimeStamp')
+Total_timestamp = st.slider("Total Time_stamp value:", 0, 17000, 1)
+
+st.subheader('Average_Playing_Density')
+Average_Playing_density = st.slider("Average Playing Density:", 0.0, 1.0, 0.1)
+
+st.subheader('Max_level')
+max_level = st.slider("Max Level:", 0, 80, 1)
+
+st.subheader('Unique_Days')
+unique_days = st.slider("Unique days:", 0, 200, 1)
+
+st.subheader('Average_Hour')
+Average_hour = st.slider("Average hours:", 0.0, 10.0, 0.1)
 
 # Veri işleme ve model tahmini
-X,y = wow_predict(df)
+X = wow_predict(feature(Total_timestamp,Average_Playing_density,max_level,unique_days,Average_hour))
 y = model.predict(X)
 
 # Sonucu gösterme
