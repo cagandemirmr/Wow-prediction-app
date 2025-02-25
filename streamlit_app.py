@@ -53,9 +53,13 @@ def wow_predict(dataframe):
   dataframe['Binned_Average_Hour'] = dataframe['Binned_Average_Hour'].astype(int)
 
   X = dataframe[['density_timestamp', 'Binned_Timestamps', 'Binned_Level', 'Binned_Unique_Days', 'Binned_Average_Hour']]
-  y = dataframe['Playing_after_6_months']
 
-  return X,y
+  if 'Playing_after_6_months' is in dataframe.columns:
+    y = dataframe['Playing_after_6_months']
+    return X,y
+  else:
+    return X
+
 
 X,y = wow_predict(df)
 
@@ -66,25 +70,6 @@ model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.2, max_dept
 
 model.fit(x_train,y_train)
 
-# Streamlit Başlıkları
-st.title('CHURN PREDICTION of WoW')
-st.header('Features', divider='rainbow')
-
-# Kullanıcı Girdileri
-st.subheader('Total TimeStamp')
-Total_timestamp = st.slider("Total Time_stamp value:", 0, 17000, 1)
-
-st.subheader('Average_Playing_Density')
-Average_Playing_density = st.slider("Average Playing Density:", 0.0, 1.0, 0.1)
-
-st.subheader('Max_level')
-max_level = st.slider("Max Level:", 0, 80, 1)
-
-st.subheader('Unique_Days')
-unique_days = st.slider("Unique days:", 0, 200, 1)
-
-st.subheader('Average_Hour')
-Average_hour = st.slider("Average hours:", 0.0, 10.0, 0.1)
 
 def feature(Total_timestamp,Average_Playing_density,max_level,unique_days,Average_hour):
   # Kullanıcı girdilerini DataFrame'e dönüştürme
