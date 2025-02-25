@@ -4,7 +4,6 @@ import pickle
 
 
 # Modeli yükleme fonksiyonu
-@st.cache_resource
 def load_model():
   with open("model.pkl", "rb") as file:
     model = pickle.load(file)
