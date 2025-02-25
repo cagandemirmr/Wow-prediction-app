@@ -1,16 +1,15 @@
 import pandas as pd
 import streamlit as st
 import pickle
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import GradientBoostingClassifier
+
+df = pd.read_csv('churn.csv')
 
 
-# Modeli yükleme fonksiyonu
-def load_model():
-  with open("model.pkl", "rb") as file:
-    model = pickle.load(file)
-  return model
-
-
-model = load_model()
 
 
 def wow_predict(dataframe):
@@ -57,6 +56,14 @@ def wow_predict(dataframe):
 
   return X
 
+x = wow_predict(df)
+
+
+x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.1,random_state=42)
+
+model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.2, max_depth=3)
+
+model.fit(x_train,y_train)
 
 # Streamlit Başlıkları
 st.title('CHURN PREDICTION of WoW')
