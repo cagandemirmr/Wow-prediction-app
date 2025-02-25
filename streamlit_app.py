@@ -53,10 +53,11 @@ def wow_predict(dataframe):
   dataframe['Binned_Average_Hour'] = dataframe['Binned_Average_Hour'].astype(int)
 
   X = dataframe[['density_timestamp', 'Binned_Timestamps', 'Binned_Level', 'Binned_Unique_Days', 'Binned_Average_Hour']]
+  y = dataframe['Playing_after_6_months']
 
-  return X
+  return X,y
 
-x = wow_predict(df)
+X,y = wow_predict(df)
 
 
 x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.1,random_state=42)
