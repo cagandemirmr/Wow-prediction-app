@@ -95,7 +95,11 @@ def feature(Total_timestamp,Average_Playing_density,max_level,unique_days,Averag
   'unique_days': [unique_days],
   'Average_Hour': [Average_hour]
 })
-  # Streamlit Başlıkları
+  return df
+
+X = wow_predict(df)
+  
+# Streamlit Başlıkları
 st.title('CHURN PREDICTION of WoW')
 st.header('Features', divider='rainbow')
 
