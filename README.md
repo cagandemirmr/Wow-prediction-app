@@ -1,25 +1,17 @@
-# 📦 Streamlit App Starter Kit 
-```
-⬆️ (Replace above with your app's name)
-```
+# 🎮 WoW Churn Prediction App
 
-Description of the app ...
+![image](https://github.com/user-attachments/assets/91bf9cdf-6abd-474b-a230-742af33d1d44)
+
+
+In this app you can adjust  features like 'total_timestamps','Average_Playing_density','max_level','unique_days' and 'Average_Hour' of gamers to predict weather gamers will churn or not in 6 month period.  
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+(https://app-starter-kit.streamlit.app/](https://wowchurnprediction.streamlit.app/))
 
-## GitHub Codespaces
+## Analysis and Feature Engineering of the project
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/app-starter-kit?quickstart=1)
+For Detailed info please visit link under description.
 
-## Section Heading
+(https://github.com/cagandemirmr/WOW_Churn_prediction)
 
-This is filler text, please replace this with text for this section.
-
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
