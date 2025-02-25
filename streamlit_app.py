@@ -9,9 +9,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 
 df = pd.read_csv('churn.csv')
 
-
-
-
+#Pipeline
 def wow_predict(dataframe):
   # Yeni özellik oluşturma
   dataframe['density_timestamp'] = dataframe['total_timestamps'] / dataframe['Average_Playing_density']
@@ -82,15 +80,14 @@ def feature(Total_timestamp,Average_Playing_density,max_level,unique_days,Averag
 })
   return df
 
-X = wow_predict(df)
-  
-# Streamlit Başlıkları
+
+# Streamlit Titles
 st.title('CHURN PREDICTION of WoW')
 st.header('Features', divider='rainbow')
 
-# Kullanıcı Girdileri
+# User Inputs
 st.subheader('Total TimeStamp')
-Total_timestamp = st.slider("Total Time_stamp value:", 0, 17000, 1)
+Total_timestamp = st.slider("The total number of timestamps recorded for the player's activities in the game.", 0, 17000, 1)
 
 st.subheader('Average_Playing_Density')
 Average_Playing_density = st.slider("Average Playing Density:", 0.0, 1.0, 0.1)
@@ -104,11 +101,11 @@ unique_days = st.slider("Unique days:", 0, 200, 1)
 st.subheader('Average_Hour')
 Average_hour = st.slider("Average hours:", 0.0, 10.0, 0.1)
 
-# Veri işleme ve model tahmini
+# Data Processing and Prediction
 X = wow_predict(feature(Total_timestamp,Average_Playing_density,max_level,unique_days,Average_hour))
 y = model.predict(X)
 
-# Sonucu gösterme
+# Show Results
 if y[0] == 0:
   st.write('YOUR PLAYER CHURNED')
 else:
