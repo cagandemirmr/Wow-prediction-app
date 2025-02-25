@@ -109,6 +109,9 @@ X = wow_predict(feature(Total_timestamp,Average_Playing_density,max_level,unique
 y = model.predict(X)
 
 # Sonucu gösterme
-st.write(f'Predicted Churn: {y[0]}')
+if y[0] == 0:
+  st.write('YOUR PLAYER CHURNED')
+else:
+  st.write('YOUR PLAYER NON-CHURNED')
 
 st.markdown('This app is created by Cagan Demir')
