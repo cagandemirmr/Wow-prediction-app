@@ -96,7 +96,7 @@ df = pd.DataFrame({
 })
 
 # Veri işleme ve model tahmini
-X = wow_predict(df)
+X,y = wow_predict(df)
 y = model.predict(X)
 
 # Sonucu gösterme
